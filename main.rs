@@ -1,15 +1,16 @@
+// fn print_coordinates(&(x, y): &(i32, i32)) {
+//     println!("location: ({},{})", x, y);
+// }
+
+// fn main() {
+//     let point = (3, 5);
+//     print_coordinates(&point);
+// }
+
 fn main() {
-    let array = ["a", "b", "c"];
-
-    println!("---in order---");
-
-    for elem in array.iter() {
-        println!("{}", elem);
-    }
-
-    println!("---in reverse order---");
-
-    for elem in array.iter().rev() {
-        println!("{}", elem);
-    }
+    let a = 42;
+    let ref_ref_ref_a = &a;
+    let ref_a = ref_ref_ref_a;
+    let b = ref_a;
+    println!("{}", b === ref_a );
 }

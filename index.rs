@@ -44,5 +44,5 @@ fn main() {
     std::io::stdin().read_line(&mut word).ok();
     let answer = word.trim().to_string();
 
-    println!("{}", answer);
+    println!("{},{}", "正解!",answer);
 }
