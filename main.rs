@@ -87,19 +87,55 @@
 // メソッドとユニット構造体実装
 // selfとはメソッドを呼びたしたオブジェクトを操作できる。
 
-use std::fmt;
-struct Password(String);
+// use std::fmt;
+// struct Password(String);
 
-impl fmt::Display for Password {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.0.chars().map(|_| '*').collect::<String>())
+// impl fmt::Display for Password {
+//     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+//         write!(f, "{}", self.0.chars().map(|_| '*').collect::<String>())
+//     }
+// }
+
+// fn main() {
+//     let a = String::from("123456789");
+//     println!("{}", a); // 123456789
+    
+//     let a = Password(String::from("123456789"));
+//     println!("{}", a); // *********
+// }
+
+// struct Result {
+//     width: i32,
+//     height: i32
+// }
+
+// // 構造体を掛け算にする関数を実装
+// impl Result {
+//     fn area(&self) -> i32 {
+//         self.width * self.height
+//     }
+// }
+
+// fn main() {
+//     let cl = Result{width: 30, height: 50};
+
+//     println!("{}", cl.area());
+// }
+
+struct Point {
+    x: f64,
+    y: f64,
+}
+
+impl Point {
+    fn new(x: f64, y: f64) -> Self { // Self は実装している型の型エイリアス
+        Self { x, y }
     }
 }
 
 fn main() {
-    let a = String::from("123456789");
-    println!("{}", a); // 123456789
-    
-    let a = Password(String::from("123456789"));
-    println!("{}", a); // *********
+    let a = Point::new(3., 5.);
+
+    print!("x={}, y={}", a.x, a.y);
 }
+
