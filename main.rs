@@ -58,13 +58,48 @@
 //     println!("LIFTOFF")
 // }
 
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
+// struct Color(i32, i32, i32);
+// struct Point(i32, i32, i32);
+
+// fn main() {
+//     let blue = Color(0, 0, 0);
+//     let Point (x,y,z) = Point(0, 0, 0);
+
+//     println!("{} {} {}", blue.0, blue.1, blue.2);
+//     println!("{} {} {}", x, y, z);
+// }
+
+// use std::fmt;
+
+// struct Password(String);
+
+
+// // 構造体のトレイト実装するためのもの
+// // トレイトのメソッドが構造体から使用できる
+// impl fmt::Display for Password {
+//     fn fmt() {
+        
+//     }
+// }
+
+
+
+// メソッドとユニット構造体実装
+// selfとはメソッドを呼びたしたオブジェクトを操作できる。
+
+use std::fmt;
+struct Password(String);
+
+impl fmt::Display for Password {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.0.chars().map(|_| '*').collect::<String>())
+    }
+}
 
 fn main() {
-    let black = Color(0, 0, 0);
-    let Point (x,y,z) = Point(0, 0, 0);
+    let a = String::from("123456789");
+    println!("{}", a); // 123456789
     
-    println!("{} {} {}", black.0, black.1, black.2);
-    println!("{} {} {}", x, y, z);
+    let a = Password(String::from("123456789"));
+    println!("{}", a); // *********
 }
